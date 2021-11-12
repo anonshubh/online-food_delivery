@@ -4,7 +4,7 @@
 **Local Setup**
 ---
 *Requirements:- Python 3.8+*<br>
-1) `https://github.com/anonshubh/online-food_delivery`
+1) `git clone https://github.com/anonshubh/online-food_delivery`
 (For Contributor: Use your Forked URL)
 2) `cd online-food_delivery`
 3) `python -m venv env`
