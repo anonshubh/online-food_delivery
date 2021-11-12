@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Resturent Home Page</h1>
+
+{% if request.user.is_authenticated %}
+<p>Hello {{user.username}}</p>
+{% endif %}
+
+<p>Owner: {{res.owner.username}}</p>
+<p>Name: {{res.name}}</p>
+
+{% endblock %}

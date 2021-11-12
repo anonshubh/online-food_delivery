@@ -19,7 +19,7 @@ class CustomSignupForm(SignupForm):
 
     first_name = forms.CharField(max_length=30, label='First Name') 
     last_name = forms.CharField(max_length=30, label='Last Name')
-    signup_as_restaurant = forms.BooleanField()
+    signup_as_restaurant = forms.BooleanField(required=False)
 
     def save(self, request):
 
