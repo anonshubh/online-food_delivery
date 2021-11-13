@@ -2,17 +2,9 @@
 
 {% block content %}
 
-<h1>Resturent Home Page</h1>
+<h1>Menu List</h1>
 
-{% if request.user.is_authenticated %}
-<p>Hello {{user.username}}</p>
-{% endif %}
-
-<p>Owner: {{res.owner.username}}</p>
-<p>Name: {{res.name}}</p>
-<hr>
-<a href="{% url 'home:create-menu' %}">Add Menu</a>
-<h1>Your Menus</h1>
+<h1>Menu of {{res.name}}</h1>
 <div class="row">
     {% for menu in menus %}
     
@@ -24,7 +16,7 @@
               <h5 class="card-title">{{menu.food_name}}</h5>
               <p class="card-text">Price: {{menu.price}}</p>
               <p class="card-text">Limit: {{menu.limit}}</p>
-              <a href="#" class="btn btn-link">Change Limit</a>
+              <a href="#" class="btn btn-link">Add to Cart</a>
             </div>
           </div>
     </div>

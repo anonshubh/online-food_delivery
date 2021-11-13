@@ -26,6 +26,7 @@ class Food(models.Model):
     price = models.PositiveIntegerField()
     ratings = models.PositiveSmallIntegerField(default=0)
     image = models.URLField(blank=True,null=True)
+    limit = models.IntegerField(default=0)
 
     def __str__(self):
         return self.food_name[:20]
