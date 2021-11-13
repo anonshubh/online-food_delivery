@@ -1,0 +1,34 @@
+.container {
+    background-color: bisque;
+    text-align: center;
+    padding: 0.5em 0.5em;
+}
+
+.container h2{
+    margin: 1vh 0;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.slide{
+    background-color: white;
+    margin: 8px 10px;
+    height: 100%;
+    width: 30%;
+    min-width: 140px;
+}
+
+.heading img{
+    width: 100%;
+    background-position: cover;
+}
+
+.desc{
+    margin: 0;
+    height: 30%;
+    background-color: white;
+}

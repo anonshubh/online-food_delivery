@@ -4,24 +4,85 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <div id="home">
-        <div id="north">
-            <header style="background-color:red">
-                <nav>
-                    <ul>
-                       <li>Hehehe</li> 
-                       <li>Hehehe</li> 
-                       <li>Hehehe</li> 
-                    </ul>
-                </nav>
-            </header>
+    <div id="common">
+        <div class="header">
+            <nav>
+                <ul>
+                    <li><a>Home</a></li> 
+                    <li><a>Contact</a></li> 
+                    <li><a>Services</a></li> 
+                    <li><a>Sign up</a></li>
+                </ul>
+            </nav>
+            <div class="catch">
+                <div class="logo">
+                    <img src="bee.png">
+                </div>
+                <h1>HungerHive</h1>
+            </div>    
         </div>
-        <div id="showcase">
+        <div class="container">
+            <h2><a>Categories</a></h2>
+            <p>Let's start with your favourite kinds</p>
+            <div class="row">
+                <div class="slide">
+                    <div class="heading">
+                        <img src="https://www.jessicagavin.com/wp-content/uploads/2020/12/how-to-make-risotto-22-1200.jpg">
+                    </div>
+                    <div class="desc">
+                        <p>Italians</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="heading">
+                        <img src="https://www.jessicagavin.com/wp-content/uploads/2020/12/how-to-make-risotto-22-1200.jpg">
+                    </div>
+                    <div class="desc">
+                        <p>Italians</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="heading">
+                        <img src="https://www.jessicagavin.com/wp-content/uploads/2020/12/how-to-make-risotto-22-1200.jpg">
+                    </div>
+                    <div class="desc">
+                        <p>Italians</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="heading">
+                        <img src="https://www.jessicagavin.com/wp-content/uploads/2020/12/how-to-make-risotto-22-1200.jpg">
+                    </div>
+                    <div class="desc">
+                        <p>Italians</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="heading">
+                        <img src="https://www.jessicagavin.com/wp-content/uploads/2020/12/how-to-make-risotto-22-1200.jpg">
+                    </div>
+                    <div class="desc">
+                        <p>Italians</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="heading">
+                        <img src="https://www.jessicagavin.com/wp-content/uploads/2020/12/how-to-make-risotto-22-1200.jpg">
+                    </div>
+                    <div class="desc">
+                        <p>Italians</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
             
-        </div>    
+        </footer>
     </div>
 </body>
 </html>
