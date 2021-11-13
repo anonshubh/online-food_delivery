@@ -2,21 +2,20 @@
 
 {% block content %}
 
-<h1>Menu List</h1>
-
+<br>
 <h1>Menu of {{res.name}}</h1>
+<br>
 <div class="row">
     {% for menu in menus %}
     
-    <div class="col-12">
-
+    <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
             <!-- <img src="{{menu.image}}" class="card-img-top" alt="No Image for this Food!"> -->
             <div class="card-body">
-              <h5 class="card-title">{{menu.food_name}}</h5>
-              <p class="card-text">Price: {{menu.price}}</p>
+              <h5 class="card-title" style="color: rgb(212, 122, 13)">{{menu.food_name}}</h5>
+              <p class="card-text">Rs.{{menu.price}}</p>
               <p class="card-text">Limit: {{menu.limit}}</p>
-              <a href="#" class="btn btn-link">Add to Cart</a>
+              <a href="#" style="align-self: center;" class="btn btn-link">Add to Cart</a>
             </div>
           </div>
     </div>

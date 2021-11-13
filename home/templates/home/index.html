@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<h1>User Home Page</h1>
+<h1>Welcome to HungerHive</h1>
 
 {% if request.user.is_authenticated %}
-<p>Hello {{user.username}}</p>
+<p>Hello {{user.username}}, please pick your favourite restaurant</p>
 {% endif %}
 
 <div class="row">
