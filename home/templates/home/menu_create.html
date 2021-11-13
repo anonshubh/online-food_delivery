@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Create New Menu</h1>
+
+<form action="{% url 'home:create-menu' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Add Menu">
+</form>
+
+{% endblock %}

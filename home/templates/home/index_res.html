@@ -10,6 +10,27 @@
 
 <p>Owner: {{res.owner.username}}</p>
 <p>Name: {{res.name}}</p>
+<hr>
+<a href="{% url 'home:create-menu' %}">Add Menu</a>
+<h1>Your Menus</h1>
+<div class="row">
+    {% for menu in menus %}
+    
+    <div class="col-12">
+
+        <div class="card" style="width: 18rem;">
+            <!-- <img src="{{menu.image}}" class="card-img-top" alt="No Image for this Food!"> -->
+            <div class="card-body">
+              <h5 class="card-title">{{menu.food_name}}</h5>
+              <p class="card-text">Price: {{menu.price}}</p>
+              <p class="card-text">Limit: {{menu.limit}}</p>
+              <a href="#" class="btn btn-link">Change Limit</a>
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+    
+</div>
 
 {% endblock %}
 
