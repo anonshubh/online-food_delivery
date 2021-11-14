@@ -1,30 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<br><br><br>
 <h1>Cart</h1>
 <hr>
-<a href="{% url 'home:list-menus' res_id %}">Back to Menu</a>
-<div class="row">
+<a href="{% url 'home:list-menus' res_id %}" class="btn btn-primary shadow">Back to Menu</a>
+<br> <br>
+<div class="row g-4">
     {% for menu in menus %}
     
-    <div class="col-12">
+    <div class="col-sm-6 col-md-6 col-xs-4 col-lg-3">
 
-        <div class="card" style="width: 18rem;">
-            <!-- <img src="{{menu.image}}" class="card-img-top" alt="No Image for this Food!"> -->
+        <div class="card shadow" style="width: 18rem;background-color: rgb(255, 240, 198);">
+            <img src="{{menu.image}}" class="card-img-top" alt="No Image for this Food!"> 
             <div class="card-body">
               <h5 class="card-title">{{menu.food_name}}</h5>
-              <p class="card-text">Price: {{menu.price}}</p>
-              <a href="{% url 'home:remove-cart' menu.id %}" class="btn btn-link">Remove From Cart</a>
+              <p class="card-text">Rs. {{menu.price}}</p>
+              <a href="{% url 'home:remove-cart' menu.id %}" class="btn btn-danger shadow">Remove</a>
             </div>
           </div>
     </div>
     {% empty %}
-    <h2>Cart is Empty!</h2>
+    <h5>Your cart is empty!</h5>
     {% endfor %}
 </div>
-
-<p class="lead">Total: {{cart.price}}</p>
-<a href="{% url 'home:check-out' cart.id %}">Check Out (Cash On Delivery)</a>
+<br><br>
+<p class="lead">Total: Rs.{{cart.price}}</p>
+<a href="{% url 'home:check-out' cart.id %}" class="btn btn-success shadow">Check Out (Cash On Delivery)</a>
 
 {% endblock %}
