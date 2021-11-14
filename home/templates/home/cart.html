@@ -24,7 +24,7 @@
     {% endfor %}
 </div>
 
-<p class="lead">Total: {{price}}</p>
-<a href="">Check Out</a>
+<p class="lead">Total: {{cart.price}}</p>
+<a href="{% url 'home:check-out' cart.id %}">Check Out</a>
 
 {% endblock %}
