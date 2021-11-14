@@ -35,7 +35,6 @@
             <div class="card-body">
               <h5 class="card-title" style="color: rgb(212, 122, 13)">{{menu.food_name}}</h5>
               <p class="card-text">Rs.{{menu.price}}</p>
-              <p class="card-text">Limit: {{menu.limit}}</p>
               <a href="{% url 'home:add-cart' menu.id %}" style="align-self: center;" class="btn btn-warning shadow">Add to Cart</a>
               </div>
           </div>
