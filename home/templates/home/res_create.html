@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Fill your Resturent details</h1>
+<h1 class="text-warning">Details of your Restaurant</h1>
 
 <form action="{% url 'home:index' %}" method="post">
     {% csrf_token %}

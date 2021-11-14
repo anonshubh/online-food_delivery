@@ -1,30 +1,49 @@
 {% extends 'base.html' %}
 
+{% block style %}
+<style>
+  .inner{
+    overflow: hidden;
+  }
+
+  .inner img{
+    transition: all 1.5s ease
+  }
+
+  .inner:hover img{
+    transform: scale(1.5);
+  }
+</style>    
+{% endblock %}
+
 {% block content %}
 
-<h1>Resturent Home Page</h1>
+<br>
+
+<h1>{{res.owner.username}}</h1>
 
 {% if request.user.is_authenticated %}
-<p>Hello {{user.username}}</p>
+<p>Happy business</p>
 {% endif %}
 
-<p>Owner: {{res.owner.username}}</p>
-<p>Name: {{res.name}}</p>
 <hr>
 <a href="{% url 'home:create-menu' %}">Add Menu</a>
-<h1>Your Menus</h1>
-<div class="row">
+<br> <br>
+<h1>Your Menu</h1>
+<div class="row g-3">
     {% for menu in menus %}
     
-    <div class="col-12">
+    <div class="col-sm-6 col-md-6 col-xs-4 col-lg-3" style="justify-content: center;">
 
-        <div class="card" style="width: 18rem;">
-            <!-- <img src="{{menu.image}}" class="card-img-top" alt="No Image for this Food!"> -->
+        <div class="card shadow" style="width: 18rem; background-color: rgb(255, 240, 198);">
+          <div class="inner" style="overflow: hidden;">
+            <img src="{{menu.image}}" class="card-img-top" alt="No Image for this Food!">
+          </div>  
             <div class="card-body">
               <h5 class="card-title">{{menu.food_name}}</h5>
               <p class="card-text">Price: {{menu.price}}</p>
               <p class="card-text">Limit: {{menu.limit}}</p>
-              <a href="#" class="btn btn-link">Change Limit</a>
+              <a href="#" class="btn btn-warning shadow">Change Limit</a>
             </div>
           </div>
     </div>
@@ -34,32 +53,3 @@
 
 {% endblock %}
 
-
-{% extends 'base.html' %}
-
-{% block content %}
-
-<h1>User Home Page</h1>
-
-{% if request.user.is_authenticated %}
-<p>Hello {{user.username}}</p>
-{% endif %}
-
-<div class="row">
-    {% for restaurant in restaurants %}
-    
-    <div class="col-12">
-
-        <div class="card" style="width: 18rem;">
-            <img src="{{restaurant.image}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{restaurant.name}}</h5>
-              <p class="card-text">{{restaurant.description}}</p>
-              <a href="#" class="btn btn-primary">Menu</a>
-            </div>
-          </div>
-    </div>
-    {% endfor %}
-    
-</div>
-{% endblock %}

@@ -1,24 +1,42 @@
 {% extends 'base.html' %}
 
+{% block style %}
+<style>
+  .inner{
+    overflow: hidden;
+  }
+
+  .inner img{
+    transition: all 1.5s ease
+  }
+
+  .inner:hover img{
+    transform: scale(1.5);
+  }
+</style>    
+{% endblock %}
+
 {% block content %}
 
-<h1>Welcome to HungerHive</h1>
-
+<br><br>
+<h1 class="text-warning">Welcome to HungerHive</h1>
 {% if request.user.is_authenticated %}
 <p>Hello {{user.username}}, please pick your favourite restaurant</p>
 {% endif %}
+<br>
 
-<div class="row">
+<div class="row g-3">
     {% for restaurant in restaurants %}
     
-    <div class="col-12">
-
-        <div class="card" style="width: 18rem;">
+    <div class="col-sm-8 col-md-5 col-xs-3 col-lg-3">
+        <div class="card shadow" style="width: 18rem; background-color: rgb(255, 240, 198);">
+          <div class="inner" style="overflow: hidden;">
             <img src="{{restaurant.image}}" class="card-img-top" alt="No Image">
+          </div>  
             <div class="card-body">
               <h5 class="card-title">{{restaurant.name}}</h5>
               <p class="card-text">{{restaurant.description}}</p>
-              <a href="{% url 'home:list-menus' restaurant.id %}" class="btn btn-primary">Menu</a>
+              <a href="{% url 'home:list-menus' restaurant.id %}" class="btn btn-warning shadow">Menu</a>
             </div>
           </div>
     </div>

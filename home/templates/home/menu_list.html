@@ -1,21 +1,40 @@
 {% extends 'base.html' %}
 
+{% block style %}
+<style>
+  .inner{
+    overflow: hidden;
+  }
+
+  .inner img{
+    transition: all 1.5s ease
+  }
+
+  .inner:hover img{
+    transform: scale(1.5);
+  }
+</style>    
+
+{% endblock %}
+
 {% block content %}
 
 <br>
-<h1>Menu of {{res.name}}</h1>
+<h1 class="text-warning">Menu of {{res.name}}</h1>
 <br>
-<div class="row">
+<div class="row g-4">
     {% for menu in menus %}
     
-    <div class="col-sm-3">
-        <div class="card" style="width: 18rem;">
-            <!-- <img src="{{menu.image}}" class="card-img-top" alt="No Image for this Food!"> -->
+    <div class="col-sm-6 col-md-6 col-xs-4 col-lg-3">
+        <div class="card shadow" style="width: 18re; background-color: rgb(255, 240, 198);">
+            <div class="inner" style="overflow: hidden;">
+              <img src="{{menu.image}}" class="card-img-top" alt="No Image for this Food!"> 
+            </div>
             <div class="card-body">
               <h5 class="card-title" style="color: rgb(212, 122, 13)">{{menu.food_name}}</h5>
               <p class="card-text">Rs.{{menu.price}}</p>
               <p class="card-text">Limit: {{menu.limit}}</p>
-              <a href="#" style="align-self: center;" class="btn btn-link">Add to Cart</a>
+              <a href="#" style="align-self: center;" class="btn btn-warning shadow">Add to Cart</a>
             </div>
           </div>
     </div>
