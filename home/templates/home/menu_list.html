@@ -21,6 +21,8 @@
 
 <br>
 <h1 class="text-warning">Menu of {{res.name}}</h1>
+<p class="lead">Limit: {{res.limit}}</p>
+<a href="{% url 'home:cart-view' res.id %}">View Cart</a>
 <br>
 <div class="row g-4">
     {% for menu in menus %}
@@ -34,8 +36,8 @@
               <h5 class="card-title" style="color: rgb(212, 122, 13)">{{menu.food_name}}</h5>
               <p class="card-text">Rs.{{menu.price}}</p>
               <p class="card-text">Limit: {{menu.limit}}</p>
-              <a href="#" style="align-self: center;" class="btn btn-warning shadow">Add to Cart</a>
-            </div>
+              <a href="{% url 'home:add-cart' menu.id %}" style="align-self: center;" class="btn btn-warning shadow">Add to Cart</a>
+              </div>
           </div>
     </div>
     {% endfor %}

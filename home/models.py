@@ -14,6 +14,7 @@ class Restaurant(models.Model):
     ratings = models.PositiveSmallIntegerField(default=0)
     lat = models.DecimalField(max_digits=22, decimal_places=16, blank=True, null=True)
     lon = models.DecimalField(max_digits=22, decimal_places=16, blank=True, null=True)
+    limit = models.IntegerField(default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -26,7 +27,16 @@ class Food(models.Model):
     price = models.PositiveIntegerField()
     ratings = models.PositiveSmallIntegerField(default=0)
     image = models.URLField(blank=True,null=True)
-    limit = models.IntegerField(default=0)
 
     def __str__(self):
         return self.food_name[:20]
+
+
+class Cart(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    res = models.ForeignKey(Restaurant,on_delete=models.CASCADE)
+    items = models.ManyToManyField(Food)
+    price = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"User: {self.user}, Res:{self.res}"

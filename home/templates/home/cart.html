@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Cart</h1>
+<hr>
+<a href="{% url 'home:list-menus' res_id %}">Back to Menu</a>
+<div class="row">
+    {% for menu in menus %}
+    
+    <div class="col-12">
+
+        <div class="card" style="width: 18rem;">
+            <!-- <img src="{{menu.image}}" class="card-img-top" alt="No Image for this Food!"> -->
+            <div class="card-body">
+              <h5 class="card-title">{{menu.food_name}}</h5>
+              <p class="card-text">Price: {{menu.price}}</p>
+              <a href="{% url 'home:remove-cart' menu.id %}" class="btn btn-link">Remove From Cart</a>
+            </div>
+          </div>
+    </div>
+    {% empty %}
+    <h2>Cart is Empty!</h2>
+    {% endfor %}
+</div>
+
+<p class="lead">Total: {{cart.price}}</p>
+<a href="{% url 'home:check-out' cart.id %}">Check Out</a>
+
+{% endblock %}
