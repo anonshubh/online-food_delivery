@@ -7,7 +7,7 @@ from django.http import HttpResponseNotAllowed, JsonResponse
 from django.core.exceptions import ValidationError,PermissionDenied
 from django.contrib import messages
 
-from .models import Restaurant
+from .models import Restaurant,Food,Cart
 from .forms import RestaurantForm,FoodForm
 
 User = get_user_model()
@@ -61,4 +61,33 @@ def list_menus(request,id):
     menus = res.menu.all()
     return render(request,'home/menu_list.html',{'menus':menus,'res':res})
 
+
+@login_required
+def add_cart(request,id):
+    menu = get_object_or_404(Food,pk=id)
+    res = menu.restaurant
+    cart,created = Cart.objects.get_or_create(res=res,user=request.user)
+    cart.items.add(menu)
+    cart.price += (menu.price)
+    cart.save()
+    return redirect('home:cart-view',id=cart.id)
+
+@login_required
+def remove_cart(request,id):
+    menu = get_object_or_404(Food,pk=id)
+    res = menu.restaurant
+    cart,created = Cart.objects.get_or_create(res=res,user=request.user)
+    cart.items.remove(menu)
+    cart.price -= (menu.price)
+    cart.save()
+    return redirect('home:cart-view',id=cart.id)
+
+
+@login_required
+def cart_view(request,id):
+    res = get_object_or_404(Restaurant,pk=id)
+    cart,created = Cart.objects.get_or_create(res=res,user=request.user)
+    menus = cart.items.all()
+    price = cart.price
+    return render(request,'home/cart.html',{'menus':menus,'price':price,'res_id':res.id})
 

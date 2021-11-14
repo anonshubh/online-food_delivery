@@ -2,11 +2,9 @@
 
 {% block content %}
 
-<h1>Menu List</h1>
-
-<h1>Menu of {{res.name}}</h1>
-<p class="lead">Limit: {{res.limit}}</p>
-<a href="{% url 'home:cart-view' res.id %}">View Cart</a>
+<h1>Cart</h1>
+<hr>
+<a href="{% url 'home:list-menus' res_id %}">Back to Menu</a>
 <div class="row">
     {% for menu in menus %}
     
@@ -17,12 +15,16 @@
             <div class="card-body">
               <h5 class="card-title">{{menu.food_name}}</h5>
               <p class="card-text">Price: {{menu.price}}</p>
-              <a href="{% url 'home:add-cart' menu.id %}" class="btn btn-link">Add to Cart</a>
+              <a href="{% url 'home:remove-cart' menu.id %}" class="btn btn-link">Remove From Cart</a>
             </div>
           </div>
     </div>
+    {% empty %}
+    <h2>Cart is Empty!</h2>
     {% endfor %}
-    
 </div>
+
+<p class="lead">Total: {{price}}</p>
+<a href="">Check Out</a>
 
 {% endblock %}

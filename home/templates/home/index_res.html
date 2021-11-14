@@ -10,6 +10,7 @@
 
 <p>Owner: {{res.owner.username}}</p>
 <p>Name: {{res.name}}</p>
+<p class="lead">Limit: {{res.limit}} <span><a href="">Update Limit</a></span></p>
 <hr>
 <a href="{% url 'home:create-menu' %}">Add Menu</a>
 <h1>Your Menus</h1>
@@ -23,8 +24,6 @@
             <div class="card-body">
               <h5 class="card-title">{{menu.food_name}}</h5>
               <p class="card-text">Price: {{menu.price}}</p>
-              <p class="card-text">Limit: {{menu.limit}}</p>
-              <a href="#" class="btn btn-link">Change Limit</a>
             </div>
           </div>
     </div>
